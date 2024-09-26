@@ -13,29 +13,34 @@ public class Main {
         isNoPrime[0] = true;
         isNoPrime[1] = true;
 
-        TreeSet<Integer> set = new TreeSet<>();
+        TreeMap<Integer, ArrayList<Integer>> map = new TreeMap<>();
         for(int i = 2; i < Math.sqrt(isNoPrime.length); i++) {
             if(isNoPrime[i]) continue;
 
-            set.add(i);
+            int diff = Math.abs(standard - i);
+
+            if(map.containsKey(diff)) {
+                map.get(diff).add(i);
+            }else {
+                ArrayList<Integer> list = new ArrayList<>();
+                list.add(i);
+                map.put(diff, list);
+            }
 
             for(int j = i + i; j < isNoPrime.length; j += i) {
                 isNoPrime[j] = true;
             }
         }
 
-        int prevNum = 2;
-        int curNum = 2;
-        for(Integer num : set) {
-            if(num >= standard) {
-                curNum = num;
-                break;
+        StringBuilder sb = new StringBuilder();
+        for(Integer diff : map.keySet()) {
+            for(Integer num : map.get(diff)) {
+                sb.append(num).append(" ");
             }
-
-            prevNum = num;
+            break;
         }
 
-        System.out.println(!isNoPrime[standard] ? standard : Math.abs(standard-prevNum) < Math.abs(standard-curNum) ? prevNum : curNum);
+        System.out.println(sb);
 
 
     }
