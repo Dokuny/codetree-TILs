@@ -22,6 +22,7 @@ public class Main {
                 if(word.charAt(j) == c) {
                     cnt++;
                     isC = true;
+                    break;
                 }
             }
 
