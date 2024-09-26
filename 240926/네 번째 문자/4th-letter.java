@@ -17,16 +17,11 @@ public class Main {
         for(int i = 0; i < N; i++) {
             String word = br.readLine();
 
-            boolean isC = false;
-            for(int j = 0; j < word.length(); j++) {
-                if(word.charAt(j) == c) {
-                    cnt++;
-                    isC = true;
-                    break;
-                }
+            if(word.charAt(3) == c) {
+                sb.append(word).append("\n");
+                cnt++;
             }
 
-            if(isC) sb.append(word).append("\n");
         }
 
         System.out.println(cnt+"\n"+sb.toString());
