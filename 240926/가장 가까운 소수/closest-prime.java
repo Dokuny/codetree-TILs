@@ -9,12 +9,12 @@ public class Main {
         
         int standard = Integer.parseInt(br.readLine());
 
-        boolean[] isNoPrime = new boolean[2000001];
+        boolean[] isNoPrime = new boolean[1000001];
         isNoPrime[0] = true;
         isNoPrime[1] = true;
 
         TreeMap<Integer, ArrayList<Integer>> map = new TreeMap<>();
-        for(int i = 2; i < Math.sqrt(isNoPrime.length); i++) {
+        for(int i = 2; i < isNoPrime.length; i++) {
             if(isNoPrime[i]) continue;
 
             int diff = Math.abs(standard - i);
