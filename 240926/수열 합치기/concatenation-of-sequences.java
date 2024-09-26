@@ -10,23 +10,24 @@ public class Main {
 
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        ArrayList<Integer> list = new ArrayList<>();
 
         st = new StringTokenizer(br.readLine());
 
         for(int i = 0; i < a; i++) {
-            pq.add(Integer.parseInt(st.nextToken()));
+         list.add(Integer.parseInt(st.nextToken()));
         }
 
         st = new StringTokenizer(br.readLine());
 
         for(int i = 0; i < b; i++) {
-            pq.add(Integer.parseInt(st.nextToken()));
+         list.add(Integer.parseInt(st.nextToken()));
         }
 
         StringBuilder sb = new StringBuilder();
-        while(!pq.isEmpty()) {
-            sb.append(pq.poll()).append(" ");
+        Collections.sort(list);
+        for(int i : list) {
+            sb.append(i).append(" ");
         }
 
         System.out.println(sb);
