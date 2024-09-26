@@ -6,7 +6,7 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println(Integer.toString(Integer.parseInt(br.readLine(), 8),2));
+        System.out.println(Long.toString(Long.parseLong(br.readLine(), 8),2));
 
     }
 }
