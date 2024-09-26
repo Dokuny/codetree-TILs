@@ -24,10 +24,18 @@ public class Main {
 
         String answer = "";
 
-        if(isEE) answer += "YES";
+        if(isEE) {
+            answer += "YES";
+        }else {
+            answer += "NO";
+        }
     
 
-        if(isEA) answer += " YES";
+        if(isEA) {
+            answer += " YES";
+        }else {
+            answer += " No";
+        }
 
         System.out.println(answer.trim());
         
