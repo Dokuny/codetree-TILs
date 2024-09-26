@@ -34,10 +34,10 @@ public class Main {
         if(isEA) {
             answer += " YES";
         }else {
-            answer += " No";
+            answer += " NO";
         }
 
-        System.out.println(answer.trim());
+        System.out.println(answer);
         
     }
 }
