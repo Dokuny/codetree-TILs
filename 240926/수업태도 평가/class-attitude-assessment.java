@@ -29,44 +29,38 @@ public class Main {
             map.put(name , map.getOrDefault(name, 0) + Integer.parseInt(st.nextToken()));
         }
 
-        PriorityQueue<Student> pq = new PriorityQueue<>((o1,o2) -> o1.grade - o2.grade);
+        TreeMap<Integer, ArrayList<String>> tMap = new TreeMap<>();
 
-        for(String name : map.keySet()) {
-            pq.add(new Student(name, map.get(name)));
+        for(String name : map.keySet()){
+            if(tMap.containsKey(map.get(name))) {
+                tMap.get(map.get(name)).add(name);
+            }else {
+                ArrayList<String> list = new ArrayList<String>();
+                list.add(name);
+                tMap.put(map.get(name), list);
+            }
         }
 
-        Student prev = pq.poll();
-        int no = 1;
-        int cnt = 1;
         String answer = "";
-        while(!pq.isEmpty()) {
-            Student cur = pq.poll();
-            if(no == 2) {
-                if(cur.grade == prev.grade) {
-                    answer = "Tie";
+        if(tMap.size() == 1) {
+            answer = "Tie";
+        }else {
+            int idx = 0;
+            for(Integer key : tMap.keySet()) {
+                if(idx == 1) {
+                    if(tMap.get(key).size() > 1) {
+                        answer = "Tie";
+                    }else {
+                        answer = tMap.get(key).get(0);
+                    }
+                    break;
                 }
-                break;
-            }
-
-            if(cur.grade != prev.grade) {
-                no += 1;
-                answer = cur.name;
+                idx++;
             }
         }
-
         System.out.println(answer);
 
 
-
     }
 
-    static class Student {
-        String name;
-        int grade;
-
-        Student(String name, int grade) {
-            this.name = name;
-            this.grade = grade;
-        }
-    }
 }
