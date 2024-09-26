@@ -16,7 +16,7 @@ public class Main {
         String answer = "";
         if(n == 1) {
             answer = "one";
-        }else if(!isPrime) {
+        }else if(isPrime) {
             answer = "composition";
         }else {
             answer = "prime";
