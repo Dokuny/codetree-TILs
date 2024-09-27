@@ -23,21 +23,23 @@ public class Main {
             int power = 1;
             int lIdx = i - 1;
             int rIdx = i + 1;
+            int preLidx = i;
+            int preRidx = i;
 
             int cnt = 1;
             while(lIdx >= 0 && rIdx < N) {
                 boolean isBomb = false;
-                if(power >= Math.abs(arr[i] - arr[lIdx])){
+                if(power >= Math.abs(arr[preLidx] - arr[lIdx])){
                     cnt++;
+                    preLidx = lIdx;
                     lIdx--;
                     power++;
                     isBomb = true;
-
-                    
                 }
 
-                if(power >= Math.abs(arr[i] - arr[rIdx])) {
+                if(power >= Math.abs(arr[preRidx] - arr[rIdx])) {
                     cnt++;
+                    preRidx = rIdx;
                     rIdx++;
                     power++;
                     isBomb = true;
@@ -51,8 +53,9 @@ public class Main {
 
             while(lIdx >= 0) {
                 boolean isBomb = false;
-                if(power >= Math.abs(arr[i] - arr[lIdx])){
+                if(power >= Math.abs(arr[preLidx] - arr[lIdx])){
                     cnt++;
+                    preLidx = lIdx;
                     lIdx--;
                     power++;
                     isBomb = true;
@@ -62,8 +65,9 @@ public class Main {
 
             while(rIdx < N) {
                 boolean isBomb = false;
-                if(power >= Math.abs(arr[i] - arr[rIdx])) {
+                if(power >= Math.abs(arr[preRidx] - arr[rIdx])) {
                     cnt++;
+                    preRidx = rIdx;
                     rIdx++;
                     power++;
                     isBomb = true;
