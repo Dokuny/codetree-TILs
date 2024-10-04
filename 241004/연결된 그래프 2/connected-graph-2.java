@@ -53,6 +53,7 @@ public class Main {
 
                     cnt++;
                     visited[adj] = true;
+                    queue.addLast(adj);
                 }
             }
 
