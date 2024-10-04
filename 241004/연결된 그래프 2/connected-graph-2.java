@@ -36,17 +36,13 @@ public class Main {
         for(int i = 1; i <= n; i++) {
             // BFS
             boolean[] visited = new boolean[n+1];
-
+            visited[i] = true;
             ArrayDeque<Integer> queue = new ArrayDeque<>();
 
             queue.addLast(i);
             int cnt = 1;
             while(!queue.isEmpty()){
                 int cur = queue.pollFirst();
-
-                if(visited[i]) continue;
-
-                visited[i] = true;
 
                 for(int adj : adjList[cur]) {
                     if(visited[adj]) continue;
