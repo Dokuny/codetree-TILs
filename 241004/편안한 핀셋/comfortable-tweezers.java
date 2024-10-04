@@ -49,8 +49,18 @@ public class Main {
                         comfortPinset++;
                     };
                 }else {
-                    comforMap[adjY][adjX] = false;
-                    comfortPinset--;
+                    int adjPinsetCnt = 0;
+                    for(int[] dir1 : dirs) {
+                        int adjAdjX = adjX + dir1[0];
+                        int adjAdjY = adjY + dir1[1];
+
+                        if(adjAdjX < 0 || adjAdjY < 0 || adjAdjX > 1000 || adjAdjY > 1000) continue;
+                        if(map[adjAdjY][adjAdjX]) adjPinsetCnt++;
+                    }
+                     if(adjPinsetCnt != 3) {
+                        comforMap[adjY][adjX] = false;
+                        comfortPinset--;
+                    };
                 }
             }
             if(pinsetCnt == 3) {
