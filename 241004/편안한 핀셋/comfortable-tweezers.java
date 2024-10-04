@@ -11,8 +11,8 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        boolean[][] map = new boolean[n][n];
-        boolean[][] comforMap = new boolean[n][n];
+        boolean[][] map = new boolean[1001][1001];
+        boolean[][] comforMap = new boolean[1001][1001];
 
         StringTokenizer st;
         int comfortPinset = 0;
