@@ -31,7 +31,7 @@ public class Main {
                 int adjX = x + dir[0];
                 int adjY = y + dir[1];
 
-                if(adjX < 0 || adjY < 0 || adjX >= 1000 || adjY >= 1000) continue;
+                if(adjX < 0 || adjY < 0 || adjX > 1000 || adjY > 1000) continue;
                 if(map[adjY][adjX]) pinsetCnt++;
 
                 // 주변 핀셋이 편안한 핀셋이 아니라면 편안해질 수 있는지 확인
@@ -41,7 +41,7 @@ public class Main {
                         int adjAdjX = adjX + dir1[0];
                         int adjAdjY = adjY + dir1[1];
 
-                        if(adjAdjX < 0 || adjAdjY < 0 || adjAdjX >= 1000 || adjAdjY >= 1000) continue;
+                        if(adjAdjX < 0 || adjAdjY < 0 || adjAdjX > 1000 || adjAdjY > 1000) continue;
                         if(map[adjAdjY][adjAdjX]) adjPinsetCnt++;
                     }
                      if(adjPinsetCnt == 3) {
