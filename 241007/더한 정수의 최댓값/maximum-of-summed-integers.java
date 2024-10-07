@@ -29,13 +29,21 @@ public class Main {
         }
 
         long max = 0;
+        // 좌측
         for(int i = 1; i < n; i++) {
             max = Math.max(max, (right[n-1] - right[0] - arr[i]) + (right[n-1] - right[i]));
         }
-
+        // 우측
         for(int i = n - 2; i >= 0; i--) {
             max = Math.max(max, (left[0] - left[n-1] - arr[i]) + (left[0] - left[i]));
         }
+
+        // 중간
+        for(int i = 1; i < n; i++) {
+            max = Math.max(max, (right[i] - right[0]) + (left[i] - left[n-1]));
+        }
+
+
 
         System.out.println(max);
 
