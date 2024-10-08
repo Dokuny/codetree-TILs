@@ -28,7 +28,7 @@ public class Main {
         int l = 0;
         int r = 1;
 
-        int cnt = 0;
+        long cnt = 0;
         int con = 0;
         while(r < n) {
             // 비교
@@ -41,7 +41,7 @@ public class Main {
                 con++;
                 r++;
             }else {
-                cnt += (con * (con + 1)) / 2;
+                cnt += ((long)con * (con + 1)) / 2;
                 con = 0;
                 l++;
             }
@@ -50,7 +50,6 @@ public class Main {
         cnt += (con * (con + 1)) / 2;
 
         System.out.println(cnt);
-
 
     }
 }
