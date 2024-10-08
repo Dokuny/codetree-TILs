@@ -10,7 +10,7 @@ public class Main {
 
         StringBuilder sb = new StringBuilder();
 
-        TreeMap<String,Integer> map = new TreeMap<>();
+        LinkedHashMap<String,Integer> map = new LinkedHashMap<>();
         
         while(true) {
             String input = br.readLine();
