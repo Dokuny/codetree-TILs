@@ -27,9 +27,10 @@ public class Main {
         // 투포인터로 비교
         int l = 0;
         int r = 1;
+        int prevR = 0;
 
         long cnt = 0;
-        int con = 0;
+        boolean isCon = false;
         while(r < n) {
             // 비교
             if(l == r) {
@@ -38,16 +39,27 @@ public class Main {
             }
 
             if(arr[r] * 0.9 <= arr[l]) {
-                con++;
                 r++;
+                isCon = true;
             }else {
-                cnt += ((long)con * (con + 1)) / 2;
-                con = 0;
+                if(isCon) {
+                    cnt += (r-l) * (r-l-1) / 2;
+                    if(l < prevR) {
+                        cnt -= (prevR-l) * (prevR-l-1) / 2;
+                    }
+                    prevR = r;
+                }
                 l++;
             }
-        }
 
-        cnt += (con * (con + 1)) / 2;
+                if(isCon) {
+                    cnt += (r-l) * (r-l-1) / 2;
+                    if(l < prevR) {
+                        cnt -= (prevR-l) * (prevR-l-1) / 2;
+                    }
+                    prevR = r;
+                }
+        }
 
         System.out.println(cnt);
 
